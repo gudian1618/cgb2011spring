@@ -35,8 +35,8 @@ public class BeanFactory {
             InputStream in = classLoader.getResourceAsStream("config.properties");
             prop.load(in);
 
-            System.out.println(prop.getProperty("EmpService"));
-            System.out.println(prop.getProperty("EmpDao"));
+            // System.out.println(prop.getProperty("EmpService"));
+            // System.out.println(prop.getProperty("EmpDao"));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,5 +46,26 @@ public class BeanFactory {
 
     public static void main(String[] args) {
         System.out.println("BeanFactory.main()");
+    }
+
+    /**
+     * 根据配置文件中的key接口名获取对应的子类实例
+     * @param interfaceName
+     * @return
+     */
+    public static Object getBean(String interfaceName) {
+
+        Object obj = null;
+
+        try {
+            // 获取当前接口对应的实现类的全限定类名
+            String className = prop.getProperty(interfaceName);
+            obj = Class.forName(className).newInstance();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return obj;
     }
 }

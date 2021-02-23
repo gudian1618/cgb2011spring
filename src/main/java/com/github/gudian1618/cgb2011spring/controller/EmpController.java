@@ -1,5 +1,6 @@
 package com.github.gudian1618.cgb2011spring.controller;
 
+import com.github.gudian1618.cgb2011spring.factory.BeanFactory;
 import com.github.gudian1618.cgb2011spring.service.EmpService;
 import com.github.gudian1618.cgb2011spring.service.EmpServiceImpl;
 import org.junit.Test;
@@ -12,7 +13,10 @@ import org.junit.Test;
 
 public class EmpController {
 
-    private EmpService service = new EmpServiceImpl();
+    // private EmpService service = new EmpServiceImpl();
+
+    // 通过工厂的方式获取子类对象
+    private EmpService service = (EmpService) BeanFactory.getBean("EmpService");
 
     @Test
     public void testAddEmp() {
