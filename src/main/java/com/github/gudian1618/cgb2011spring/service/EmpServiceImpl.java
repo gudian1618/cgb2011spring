@@ -2,6 +2,7 @@ package com.github.gudian1618.cgb2011spring.service;
 
 import com.github.gudian1618.cgb2011spring.dao.EmpDao;
 import com.github.gudian1618.cgb2011spring.dao.EmpDaoImpl;
+import com.github.gudian1618.cgb2011spring.factory.BeanFactory;
 
 /**
  * @author gudian1618
@@ -11,7 +12,9 @@ import com.github.gudian1618.cgb2011spring.dao.EmpDaoImpl;
 
 public class EmpServiceImpl implements EmpService {
 
-    private EmpDao dao = new EmpDaoImpl();
+    // private EmpDao dao = new EmpDaoImpl();
+
+    private EmpDao dao = (EmpDao) BeanFactory.getBean("EmpDao");
 
     @Override
     public void addEmp() {
