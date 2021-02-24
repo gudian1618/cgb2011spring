@@ -4,9 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--将EmpService接口的子类声明到spring容器中,让spring容器创建该类的实例,id值首字母小写并且唯一-->
-    <bean id="empService" class="com.github.gudian1618.cgb2011spring.service.EmpServiceImpl"></bean>
+    <bean id="empService" class="com.github.gudian1618.cgb2011spring.service.EmpServiceImpl"/>
 
     <!--将EmpDao接口的子类声明到spring容器中,让spring容器创建该类的实例,id值首字母小写并且唯一-->
-    <bean id="empDao" class="com.github.gudian1618.cgb2011spring.dao.EmpDaoImpl"></bean>
+    <bean id="empDao" class="com.github.gudian1618.cgb2011spring.dao.EmpDaoImpl"/>
+
+    <!--将User类声明到spring容器中,由spring容器创建该类的对象,通过scope属性修改实例的模式是单还是多-->
+    <bean id="user" class="com.github.gudian1618.cgb2011spring.pojo.User" scope="prototype"/>
 
 </beans>
