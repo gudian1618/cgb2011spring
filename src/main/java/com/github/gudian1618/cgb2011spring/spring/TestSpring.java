@@ -65,4 +65,17 @@ public class TestSpring {
         }
     }
 
+    /**
+     * 3.测试spring的DI
+     * 3.1.set方法注入: 通过对象的setXxx方法给对象的xxx属性赋值
+     *
+     * 3.2.构造方法注入: 通过对象的有参构造函数给对象的属性赋值
+     */
+    @Test
+    public void testDI() {
+        // 通过spring容器对象获取User类的实例
+        User u = (User) ac.getBean("user");
+        System.out.println(u);
+    }
+
 }

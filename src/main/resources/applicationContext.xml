@@ -10,6 +10,20 @@
     <bean id="empDao" class="com.github.gudian1618.cgb2011spring.dao.EmpDaoImpl"/>
 
     <!--将User类声明到spring容器中,由spring容器创建该类的对象,通过scope属性修改实例的模式是单还是多-->
-    <bean id="user" class="com.github.gudian1618.cgb2011spring.pojo.User" scope="prototype"/>
+    <bean id="user" class="com.github.gudian1618.cgb2011spring.pojo.User" scope="singleton">
+        <!--通过set方法注入-->
+        <!--<property name="name" value="韩少云"/>-->
+        <!--<property name="age" value="30"/>-->
+        <!--&lt;!&ndash;如果属性值是一个pojo对象类型,需要赋值,通过ref连接bean对象的id值来传递对应的pojo对象值&ndash;&gt;-->
+        <!--<property name="info" ref="userInfo"></property>-->
+
+        <!--通过构造方法为user对象的属性赋值-->
+        <constructor-arg name="name" value="马云"/>
+        <constructor-arg name="age" value="35"/>
+        <constructor-arg name="info" ref="userInfo"/>
+    </bean>
+
+    <!--将UserInfo类声明到spring容器中-->
+    <bean id="userInfo" class="com.github.gudian1618.cgb2011spring.pojo.UserInfo"/>
 
 </beans>
